@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -24,6 +24,7 @@ const Header = () => {
   const isPublicRoute = location.pathname === "/";
 
   return (
+    <>
     <header className="bg-white shadow-md px-8 py-4 flex justify-between items-center sticky top-0 z-10 border-b border-gray-100">
       <h1
         className="text-xl font-bold cursor-pointer text-green-700 hover:text-green-800 transition duration-200"
@@ -48,7 +49,10 @@ const Header = () => {
           </button>
         )}
       </div>
+     
     </header>
+    <Outlet />
+    </>
   );
 };
 
