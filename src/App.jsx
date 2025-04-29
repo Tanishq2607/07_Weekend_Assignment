@@ -15,11 +15,18 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute isLoginPage={true}>
+                <Login />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/dashboard"
             element={
-              <PrivateRoute>
+              <PrivateRoute isLoginPage={false}>
                 <Dashboard />
               </PrivateRoute>
             }
@@ -27,7 +34,7 @@ function App() {
           <Route
             path="/details/:id"
             element={
-              <PrivateRoute>
+              <PrivateRoute isLoginPage={false}>
                 <Details />
               </PrivateRoute>
             }
